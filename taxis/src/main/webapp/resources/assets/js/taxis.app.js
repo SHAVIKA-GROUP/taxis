@@ -15,15 +15,19 @@
     var directionsDisplay;
     
     google.maps.event.addDomListener(window, 'load', function () {
-        new google.maps.places.SearchBox(document.getElementById('txtSource'));
-        new google.maps.places.SearchBox(document.getElementById('txtDestination'));
+        new google.maps.places.SearchBox(document.getElementById('source'));
+        new google.maps.places.SearchBox(document.getElementById('designation'));
         directionsDisplay = new google.maps.DirectionsRenderer({ 'draggable': true });
     });
      
     
     function GetRoute() {
-        source = document.getElementById("txtSource").value;
-        destination = document.getElementById("txtDestination").value;
+        source = document.getElementById("source").value;
+        destination = document.getElementById("designation").value;
+		if(source == null || source == '' || destination == null || destination == ''){
+			alert('Source / Desgnation should not be empty...');
+			return;
+		}
       //********* GET DIRECTIONS/MAP, ROUTE AND DISTANCE / DURATION **********************//
         var request = { origin: source, destination: destination, travelMode: google.maps.TravelMode.DRIVING };
         var directionsService = new google.maps.DirectionsService();
@@ -40,9 +44,13 @@
     }
     
     function GetMap() {
-        source = document.getElementById("txtSource").value;
-        destination = document.getElementById("txtDestination").value;
-        //********* Initilazie  MAP **********************//
+        source = document.getElementById("source").value;
+        destination = document.getElementById("designation").value;
+   		if(source == null || source == '' || destination == null || destination == ''){
+			alert('Source / Desgnation should not be empty...');
+			return;
+		}
+		//********* Initilazie  MAP **********************//
     	var mumbai = new google.maps.LatLng(18.9750, 72.8258);
         var mapOptions = { zoom: 7, center: mumbai };
         map = new google.maps.Map(document.getElementById('dvMap'), mapOptions);
