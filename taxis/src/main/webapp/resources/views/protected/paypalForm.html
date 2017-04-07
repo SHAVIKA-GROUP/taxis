@@ -1,0 +1,128 @@
+<div class="row" ng-controller="appepaypalForm">
+	
+		<!-- ---------------------- Online Booking----------------------  -->
+		<section id="book-taxi-online-form">
+		<div class="container-fluid no-padding page-content book-taxi-online-form">
+		<!-- Container -->
+		<div class="container">
+			<div class="section-padding"></div>		
+			<div class="section-header">
+				<h3>Online Payment</h3>
+			</div>
+			<div class="col-md-12 col-sm-12 col-xs-12 blog-area">
+				<div class="col-md-6 col-sm-12 col-xs-12 vehicle-detail">
+					<h4 style="color:blue;">Travel Detail</h4>
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane active" id="cab_details-3">
+							<div class="tabe-content">
+								<h3 align="left">Source <span>{{tripObj.travelDetail.source}}</span></h3>
+								<h3 align="left">Designation <span>{{tripObj.travelDetail.designation}}</span></h3>
+								<h3 align="left">Travel Date <span>{{tripObj.travelDetail.travel_datetime}}</span></h3>
+								<h3 align="left">Passanger Capacity<span>{{tripObj.travelDetail.no_passanger}}</span></h3>
+								<h3 align="left">Luggage Capacity <span>{{tripObj.travelDetail.no_luggage}}</span></h3>
+								<h3 align="left">Distance / Duration <span>{{tripObj.travelDetail.travel_distance}} Miles / {{tripObj.travelDetail.travel_duration}} Sec</span></h3>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-12 col-xs-12 vehicle-detail">
+					<h4 style="color:blue;">Passanger Detail</h4>
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane active" id="cab_details-4">
+							<div class="tabe-content">
+								<h3 align="left">Passanger Name <span>{{tripObj.passanger.first_name}} {{tripObj.passanger.last_name}}</span></h3>
+								<h3 align="left">Phone <span>{{tripObj.passanger.phone_id}}</span></h3>
+								<h3 align="left">Email <span>{{tripObj.passanger.email}}</span></h3>
+								<h3 align="left">Address <span>{{tripObj.passanger.address_one}}, {{tripObj.passanger.address_two}}, 
+								{{tripObj.passanger.city}}-{{tripObj.passanger.zip_name}}, {{tripObj.passanger.state}}.</span></h3>
+								<h3 align="left">VehicleName<span>{{vehicles.vehicle_no}} / {{vehicles.vehicle_name}}</span></h3>
+								<h3 align="left">Regular Fare<span>$ {{vehicles.regular_fare}} / Km (Day Travel)</span></h3>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-12 col-sm-12 col-xs-12 blog-area">
+			<div class="col-md-6 col-sm-12 col-xs-12 vehicle-detail">
+				<form class="online-booking-form row">
+					<h4 style="color:blue;">Order Summary</h4>
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane active" id="cab_details-5">
+							<div class="tabe-content">
+								<h3 align="left">Description<span>Amount</span></h3>
+								<h3 align="left">&nbsp; <span>&nbsp;</span></h3>
+								<h3 align="left">Trip-NV12AS001238711238 <span>$ {{vehicles.regular_fare}} * {{tripObj.travelDetail.travel_distance}}</span></h3>
+								<h3 align="left"><hr/></h3>
+								<h3 align="left">Total<span>$ {{vehicles.regular_fare}} * {{tripObj.travelDetail.travel_distance}}</span></h3>
+							</div>
+						</div>
+					</div>
+				</form>	
+			</div>
+			
+			<div class="col-md-6 col-sm-12 col-xs-12 blog-area">				
+				<!-- Online Booking Form -->
+				<form  id="bookingForm" class="online-booking-form row">
+					<h4 style="color:blue;">Account Details</h4>					
+					<div class="form-group col-md-12 col-sm-12 col-xs-12">
+						<label for="first_name" >Country&nbsp;<font color="red">*</font></label>
+						<input type="text"  class="form-control" ng-model="trip.passanger.first_name" id="first_name" placeholder="Enter Your Country">
+						<span class="help-block"></span>
+					</div>
+					
+					<div class="form-group col-md-12 col-sm-12 col-xs-12">
+						<label for="last_name" >Card Number&nbsp;<font color="red">*</font></label>
+						<input type="text" class="form-control" ng-model="trip.passanger.last_name" id="last_name" placeholder="Enter Your Card number here">
+						<span class="help-block"></span>
+					</div>
+					
+					<div class="form-group col-md-12 col-sm-12 col-xs-12">
+						<label for="phone_id" >PayMent Types&nbsp;<font color="red">*</font></label>
+						<input type="number" class="form-control" ng-model="trip.passanger.phone_id" id="phone_id" placeholder="Visa">
+						<span class="help-block"></span>
+					</div>
+					<div class="form-group col-md-12 col-sm-12 col-xs-12">
+						<label for="email" >Experied Date&nbsp;<font color="red">*</font></label>
+						<div class="form-group col-md-12 col-sm-12 col-xs-12">
+							<div class="form-group  col-md-6 col-sm-12 col-xs-12">
+								<input type="email" class="form-control" ng-model="trip.passanger.email" id="email" placeholder="YYYY">
+								<span class="help-block"></span>
+							</div>
+							<div class="form-group  col-md-6 col-sm-12 col-xs-12">
+								<input type="email" class="form-control" ng-model="trip.passanger.email" id="email" placeholder="YYYY">
+								<span class="help-block"></span>
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-group col-md-12 col-sm-12 col-xs-12">
+						<label for="address_one" >CVV&nbsp;<font color="red">*</font></label>
+						<input type="email" class="form-control" ng-model="trip.passanger.email" id="email" placeholder="CVV">
+						<span class="help-block"></span>
+					</div>
+					
+					<div class="form-group col-md-12 col-sm-12 col-xs-12">
+						<label for="address_two" >Billing Address&nbsp;<font color="red">*</font></label>
+						<p>{{tripObj.passanger.address_one}}, <br> {{tripObj.passanger.address_two}}, <br> 
+								{{tripObj.passanger.city}}-{{tripObj.passanger.zip_name}}, <br>{{tripObj.passanger.state}}.
+						</p>
+					</div>
+					
+					<div class="form-group col-md-12 col-sm-12 col-xs-12" align="center">
+						<div class="form-group col-md-6 col-sm-12 col-xs-12">
+							<button type="button" ng-click="goback_submit()" class="btn">Go Back</button>
+						</div>
+						<div class="form-group col-md-6 col-sm-12 col-xs-12">
+							<button type="button" ng-click="checkout_submit()" class="btn">Check Out</button>
+						</div>
+					</div>
+				</form><!-- Online Booking Form/- -->
+			</div>
+			</div>
+		</div><!-- Container/- -->
+		<div class="section-padding"></div>
+	</div><!-- Page Content/- -->
+	</section>
+
+</div>

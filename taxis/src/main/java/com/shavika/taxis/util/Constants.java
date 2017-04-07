@@ -1,5 +1,7 @@
 package com.shavika.taxis.util;
 
+import java.util.Properties;
+
 public class Constants {
 
 	public static final int LOGIN_TYPE = 1;
@@ -30,4 +32,20 @@ public class Constants {
     public final static String ORDER_RECEIVED = "RCVD";
     public final static String ORDER_CANCELED = "CNLD";
     public final static String ORDER_REJECTED = "RJKD";
+    
+    /* --- Gmail SMTP Configure--- */
+    public final static String USER_NAME = "cabserviceinuk@gmail.com";
+    public final static String MAIL_FROM = "cabserviceinuk@gmail.com";
+    public final static String PASSWORD = "Test@123";
+    public final static String SMTP_HOST = "smtp.gmail.com";
+
+    public final static Properties props = new Properties();
+    static{
+		props.put("mail.smtp.starttls.enable", "true");
+		props.put("mail.smtp.host", "smtp.gmail.com");
+		props.put("mail.smtp.user", USER_NAME);
+		props.put("mail.smtp.password", PASSWORD);
+		props.put("mail.smtp.port", "587");
+		props.put("mail.smtp.auth", "true");
+    }
 }

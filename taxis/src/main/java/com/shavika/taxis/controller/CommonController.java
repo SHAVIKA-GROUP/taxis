@@ -14,11 +14,19 @@ import com.shavika.taxis.api.exception.ShavikaAppException;
 @Controller
 public class CommonController {
 
-	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/", "/homeServlet" }, method = RequestMethod.GET)
 	public ModelAndView indexPage(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws ShavikaAppException {
 		ModelAndView model = new ModelAndView();
 		System.out.println("=================== /protected/index");
 		model.setViewName("protected/index");
+		return model;
+	}
+
+	@RequestMapping(value = { "/emailVocher" }, method = RequestMethod.GET)
+	public ModelAndView emailvoicherPage(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws ShavikaAppException {
+		ModelAndView model = new ModelAndView();
+		System.out.println("=================== /protected/emailComfirmed.jsp");
+		model.setViewName("protected/emailComfirmed");
 		return model;
 	}
 

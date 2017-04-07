@@ -1,0 +1,399 @@
+<div class="row" ng-controller="appCtrl">
+		<a id="#top"></a>
+		<!-- ---------------------- Photo Slider  ----------------------  -->
+		<section id="photosslider">
+			<div class="container-fluid photos-slider">
+			<div class="section-padding"></div>
+				<div class="carousel slide" data-ride="carousel">			
+					<div class="carousel-inner" role="listbox">
+						<div class="item active">
+							<img src="./resources/assets/images/photos-slider/photo-slide-1.jpg" alt="side-1"/>
+							<div class="carousel-caption">
+								<h2>A reliable way to travel</h2>
+								<p>Come and listen to a story about a man named Jed a poor mountaineer barely kept his family fed so lets make the most of this 
+								beautiful day since we are together it is a beautiful day in this neighborhood a beautiful day for a neighbor</p>
+								<a href="#" class="purchase">Purchase</a>
+								<a href="#" title="See More" class="see-more">See More</a>						
+							</div>
+						</div>
+						<div class="item">
+							<img src="./resources/assets/images/photos-slider/photo-slide-1.jpg" alt="side-2"/>
+							<div class="carousel-caption">
+								<h2>A reliable way to travel</h2>
+								<p>Come and listen to a story about a man named Jed a poor mountaineer barely kept his family fed so lets make the most of this 
+								beautiful day since we are together it is a beautiful day in this neighborhood a beautiful day for a neighbor</p>
+								<a href="#" class="purchase">Purchase</a>
+								<a href="#" class="see-more">See More</a>						
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="section-padding"></div>
+			</div ><!-- Photo Slider/- -->
+		</section>
+	
+		<!-- ---------------------- Book Detail  ----------------------  -->
+		<section id="bookdetails">
+			<div class="container-fluid no-padding book-details">
+				<!-- Container -->
+				<div class="container">
+					<div class="section-padding"></div>
+					<div class="section-header">
+						<h3>Book For a Ride</h3>				
+					</div>
+					<!-- Booking Details Form -->
+					<form id="tripForm"  class="booking-details-form">
+						<div class="form-group col-md-6 col-sm-12 col-xs-12">
+							<label for="source" >Source&nbsp;<font color="red">*</font></label>
+							<input type="text" class="form-control" ng-model="trip.travelDetail.source" id="source" name="source"  placeholder="Enter Your Starting point">
+							<span class="help-block"></span>
+						</div>
+						
+						<div class="form-group col-md-6 col-sm-12 col-xs-12">
+							<label for="designation" >Designation&nbsp;<font color="red">*</font></label>
+							<input type="text" class="form-control" ng-model="trip.travelDetail.designation" id="designation" name="designation" placeholder="Enter Your Ending point">
+							<span class="help-block"></span>
+						</div>
+						
+						<div class="form-group col-md-6 col-sm-12 col-xs-12">
+							<label for="travel_datetime" >Date &amp; Time&nbsp;<font color="red">*</font></label>
+                			<div class="input-group date form_datetime" data-date="2017-03-14T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
+                    			<input type="text" class="form-control" size="16" ng-model="trip.travelDetail.travel_datetime" id="travel_datetime" value="" readonly>
+                    			<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                			</div>
+							<input type="hidden"  id="dtp_input1" value="" /><br/>
+							<span class="help-block"></span>
+						</div>
+						
+						<div class="form-group col-md-3 col-sm-6 col-xs-12">
+							<label for="no_passanger" >Passenger&nbsp;<font color="red">*</font></label>
+							<input type="number" class="form-control" ng-model="trip.travelDetail.no_passanger" id="no_passanger" placeholder="0">
+							<span class="help-block"></span>
+						</div>
+						
+						<div class="form-group col-md-3 col-sm-6 col-xs-12">
+							<label for="no_luggage" >Luggage&nbsp;<font color="red">*</font></label>
+							<input type="number" class="form-control" ng-model="trip.travelDetail.no_luggage" id="no_luggage" placeholder="0">
+							<span class="help-block"></span>
+						</div>
+						
+						
+						<div class="form-group col-md-12 col-sm-12 col-xs-12">
+								<div class="form-group col-md-3 col-sm-6 col-xs-12" align="left">
+									<button type="button" class="btn" data-toggle="modal" data-target="#mapmodal" >get Map</button>
+								</div>
+								<div class="form-group col-md-3 col-sm-6 col-xs-12" align="left">
+									<h4>Duration : <span class="label label-default" id="spnDuration"></span></h4>
+								</div>
+								<div class="form-group col-md-3 col-sm-6 col-xs-12" align="left">
+									<h4>Distance : <span class="label label-default" id="spnDistance"></span></h4>
+								</div>
+								<div class="form-group col-md-3 col-sm-6 col-xs-12" align="right">
+									<button type="button" class="btn" onclick="GetRoute()">Get Distance</button>
+								</div>
+						</div>
+						<div class="form-group col-md-12 col-sm-12 col-xs-12">
+							<h4 style="color: #efefef">Scroll down / click 'VEHICLE TYPE' for select a vehicle.</h4>
+						</div>
+					</form><!-- Booking Details Form/- -->
+				</div><!-- Container/- -->
+			</div><!-- Book Details/- -->
+			<div class="section-padding"></div>
+		</section>
+
+		<!-- ---------------------- Vehicle feleet ----------------------  -->
+		<section id="vehiclefleet">
+			<div class="container-fluid no-padding vehicle-fleet">
+				<div class="container">
+					<div class="section-header">
+						<h3>Vehicles In Our Fleet</h3>				
+					</div>
+					<!-- Tab Content -->
+					<div class="tab-content">
+						<div id="cabtab" class="col-md-12 vehicle-detail">
+							<!-- Nav tabs -->
+							<ul class="nav nav-tabs" role="tablist">
+								<li role="presentation" class="active"><a href="#cabtab-1" role="tab" data-toggle="tab">HatchBack</a></li>
+								<li role="presentation" class=""><a href="#cabtab-2" role="tab" data-toggle="tab"> Sedan</a></li>
+								<li role="presentation" class=""><a href="#cabtab-3" role="tab" data-toggle="tab"> MPV / SUV</a></li>
+							</ul>
+							<!-- Tab panes -->
+							<div class="tab-content">
+								<!-- ******************* HatchBack ********************* -->
+								<div role="tabpanel" class="tab-pane active" id="cabtab-1">
+									<div class="tabe-content">
+										<table class="table table-condensed">
+  											<thead>
+	  											<tr>
+	  												<th>SlNo</th>
+	  												<th>&nbsp;</th>
+	  												<th>VehicleNo</th>
+	  												<th>VehicleName</th>
+	  												<th>PassangerCapacity</th>
+	  												<th>LuggageCapacity</th>
+	  												<th>Regular Fare</th>
+	  											</tr>
+  											</thead>
+  											<tbody>
+	  											<tr ng-repeat="vehicle in vehiclesList" ng-if="vehicle.type == 1">
+	  												<td>{{$index + 1}}
+	  												&nbsp;&nbsp;<input type="radio" name="vehicletype" ng-model="vehicletype" ng-click="getVehicleType(vehicle.id)"></td>
+	  												<td><img src="{{getImagePath(vehicle.img_name)}}" class="img-thumbnail" width="90px" height="45px" alt="item-1"/></td>
+	  												<td>{{vehicle.vehicle_no}}</td>
+	  												<td>{{vehicle.vehicle_name}}</td>
+	  												<td>{{vehicle.pasanger_capacity}}</td>
+	  												<td>{{vehicle.luggage_capacity}}</td>
+	  												<td>$ {{vehicle.regular_fare}} / Km (Day Travel)</td>	
+	  											</tr>	
+  											</tbody>
+										</table>
+									</div>
+								</div>
+								<!-- ******************* SEDAN ********************* -->
+								<div role="tabpanel" class="tab-pane" id="cabtab-2">
+									<div class="tabe-content">
+										<table class="table table-condensed">
+  											<thead>
+	  											<tr>
+	  												<th>SlNo</th>
+	  												<th>&nbsp;</th>
+	  												<th>VehicleNo</th>
+	  												<th>VehicleName</th>
+	  												<th>PassangerCapacity</th>
+	  												<th>LuggageCapacity</th>
+	  												<th>Regular Fare</th>
+	  											</tr>
+  											</thead>
+  											<tbody>
+	  											<tr ng-repeat="vehicle in vehiclesList" ng-if="vehicle.type == 2">
+	  												<td>{{$index + 1}}
+	  												&nbsp;&nbsp;<input type="radio" name="vehicletype" ng-model="vehicletype" ng-click="getVehicleType(vehicle.id)"></td>
+	  												<td><img src="{{getImagePath(vehicle.img_name)}}" class="img-thumbnail" width="90px" height="45px" alt="item-1"/></td>
+	  												<td>{{vehicle.vehicle_no}}</td>
+	  												<td>{{vehicle.vehicle_name}}</td>
+	  												<td>{{vehicle.pasanger_capacity}}</td>
+	  												<td>{{vehicle.luggage_capacity}}</td>
+	  												<td>$ {{vehicle.regular_fare}} / Km (Day Travel)</td>	
+	  											</tr>	
+  											</tbody>
+										</table>
+									</div>
+								</div>
+								<!-- ******************* MPV / SUV ********************* -->
+								<div role="tabpanel" class="tab-pane" id="cabtab-3">
+									<div class="tabe-content">
+										<table class="table table-condensed">
+  											<thead>
+	  											<tr>
+	  												<th>SlNo</th>
+	  												<th>&nbsp;</th>
+	  												<th>VehicleNo</th>
+	  												<th>VehicleName</th>
+	  												<th>PassangerCapacity</th>
+	  												<th>LuggageCapacity</th>
+	  												<th>Regular Fare</th>
+	  											</tr>
+  											</thead>
+  											<tbody>
+	  											<tr ng-repeat="vehicle in vehiclesList" ng-if="vehicle.type == 3">
+	  												<td>{{$index + 1}}
+	  												&nbsp;&nbsp;<input type="radio" name="vehicletype" ng-model="vehicletype" ng-click="getVehicleType(vehicle.id)"></td>
+	  												<td><img src="{{getImagePath(vehicle.img_name)}}" class="img-thumbnail" width="90px" height="45px" alt="item-1"/></td>
+	  												<td>{{vehicle.vehicle_no}}</td>
+	  												<td>{{vehicle.vehicle_name}}</td>
+	  												<td>{{vehicle.pasanger_capacity}}</td>
+	  												<td>{{vehicle.luggage_capacity}}</td>
+	  												<td>$ {{vehicle.regular_fare}} / Km (Day Travel)</td>	
+	  											</tr>	
+  											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div><!-- Tab Content /-  -->
+					<div class="section-padding"></div>
+					<div class="form-group col-md-12 col-sm-12 col-xs-12" align="center"> 
+						<h4 style="color: #ffa000">Scroll down / click 'BOOKING FORM' for fill passanger detail.</h4>
+					</div>
+				</div>
+				
+			</div>
+			<div class="section-padding"></div>	
+		</section>
+	
+
+		<!-- ---------------------- Online Booking----------------------  -->
+		<section id="book-taxi-online-form">
+		<div class="container-fluid no-padding page-content book-taxi-online-form">
+		<!-- Container -->
+		<div class="container">		
+			<!-- Blog Area -->
+				<div class="section-header">
+					<h3>Book Your Taxi Online</h3>
+				</div>
+			<div class="col-md-12 col-sm-12 col-xs-12 blog-area">				
+				<!-- Online Booking Form -->
+				<form  id="bookingForm" class="online-booking-form row">
+					<h4>Personal Details</h4>					
+					
+					<div class="form-group col-md-6 col-sm-12 col-xs-12">
+						<label for="first_name" >First Name&nbsp;<font color="red">*</font></label>
+						<input type="text"  class="form-control" ng-model="trip.passanger.first_name" id="first_name" placeholder="Enter Your First Name Here">
+						<span class="help-block"></span>
+					</div>
+					
+					<div class="form-group col-md-6 col-sm-12 col-xs-12">
+						<label for="last_name" >Last Name&nbsp;<font color="red">*</font></label>
+						<input type="text" class="form-control" ng-model="trip.passanger.last_name" id="last_name" placeholder="Enter Your Last Name Here">
+						<span class="help-block"></span>
+					</div>
+					
+					<div class="form-group col-md-6 col-sm-12 col-xs-12">
+						<label for="phone_id" >Phone Number&nbsp;<font color="red">*</font></label>
+						<input type="number" class="form-control" ng-model="trip.passanger.phone_id" id="phone_id" placeholder="xxx-xxx-xxxx">
+						<span class="help-block"></span>
+					</div>
+					<div class="form-group col-md-6 col-sm-12 col-xs-12">
+						<label for="email" >Email&nbsp;<font color="red">*</font></label>
+						<input type="email" class="form-control" ng-model="trip.passanger.email" id="email" placeholder="Your E-Mail">
+						<span class="help-block"></span>
+					</div>
+					
+					<div class="form-group col-md-6 col-sm-12 col-xs-12">
+						<label for="address_one" >Address 1&nbsp;<font color="red">*</font></label>
+						<textarea name="message" class="form-control" ng-model="trip.passanger.address_one" id="address_one" rows="5" placeholder="Your Address-1"></textarea>
+						<span class="help-block"></span>
+					</div>
+					<div class="form-group col-md-6 col-sm-12 col-xs-12">
+						<label for="address_two" >Address 2&nbsp;<font color="red">*</font></label>
+						<textarea name="message" class="form-control" ng-model="trip.passanger.address_two" id="address_two" rows="5" placeholder="Your Address-2"></textarea>
+						<span class="help-block"></span>
+					</div>
+					
+					<div class="form-group col-md-6 col-sm-12 col-xs-12">
+						<label for="gender" >Gender&nbsp;<font color="red">*</font></label>
+						<input type="text" class="form-control" ng-model="trip.passanger.gender" id="gender" placeholder="Enter Gender" maxlength="1" style="text-transform:uppercase" />
+						<span class="help-block"></span>
+					</div>
+					
+					<div class="form-group col-md-6 col-sm-12 col-xs-12">
+						<label for="zip_name" >Zip&nbsp;<font color="red">*</font></label>
+						<input type="number" class="form-control" ng-model="trip.passanger.zip_name" id="zip_name" placeholder="Enter City zip" maxlength="6" />
+						<span class="help-block"></span>
+					</div>
+					
+					<div class="form-group col-md-6 col-sm-12 col-xs-12">
+						<label for="city" >City&nbsp;<font color="red">*</font></label>
+						<input type="text" class="form-control" ng-model="trip.passanger.city" id="city" placeholder="Enter Your City">
+						<span class="help-block"></span>
+					</div>
+					<div class="form-group col-md-6 col-sm-12 col-xs-12">
+						<label for="state" >State&nbsp;<font color="red">*</font></label>
+						<input type="text" class="form-control" ng-model="trip.passanger.state" id="state" placeholder="Enter Your State">
+						<span class="help-block"></span>
+					</div>
+					
+					<div class="form-group col-md-12 col-sm-12 col-xs-12" align="center">
+						<div class="form-group col-md-6 col-sm-12 col-xs-12">
+							<button type="button" ng-disabled="isDisabledE" ng-click="ebooking_submit()" class="btn">Email Booking</button>
+						</div>
+						<div class="form-group col-md-6 col-sm-12 col-xs-12">
+							<button type="button" ng-disabled="isDisabledP" ng-click="pbooking_submit()" class="btn">payment Booking</button>
+						</div>
+					</div>
+				</form><!-- Online Booking Form/- -->
+			</div>
+		</div><!-- Container/- -->
+		<div class="section-padding"></div>
+	</div><!-- Page Content/- -->
+	</section>
+</div>
+
+<!-- ---------------------- Contact us----------------------  -->
+<section id="contact-us">
+	<footer class="footer-main">
+		 <div class="container-fluid no-padding about-contact">
+			<!-- Container -->
+			<div class="container">	
+				<div class="section-header">
+					<h3>About / Contact Us</h3>
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<aside class="widget widget-subscribe">
+						<div class="subscribe-box">
+							<h4>Subscribe To Mail!</h4>
+							<p>Get our Daily email n.ewsletter with Special Services, Updates, Offers and more</p>
+							<div class="input-group">
+								<input type="text" class="form-control" placeholder="Email Address">
+								<span class="input-group-btn">
+									<button class="btn btn-default" type="button">SignUp</button>
+								</span>
+							</div><!-- /input-group -->
+						</div>
+						<ul>
+							<li><a href="#"><img src="./resources/assets/images/icon/ftr-fb.png" alt="ftr" /></a></li>
+							<li><a href="#"><img src="./resources/assets/images/icon/ftr-g+.png" alt="ftr" /></a></li>
+							<li><a href="#"><img src="./resources/assets/images/icon/ftr-tumbler.png" alt="ftr" /></a></li>
+							<li><a href="#"><img src="./resources/assets/images/icon/ftr-dribbble.png" alt="ftr" /></a></li>
+							<li><a href="#"><img src="./resources/assets/images/icon/ftr-ln.png" alt="ftr" /></a></li>
+							<li><a href="#"><img src="./resources/assets/images/icon/ftr-tw.png" alt="ftr" /></a></li>
+						</ul>
+					</aside>
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<aside class="widget widget-links">
+						<h3 class="widget-title">We Glad To Offer</h3>
+						<ul>
+							<li><a href="#">24 / 7 Taxi Service To Any Where Around The City</a></li>
+							<li><a href="#">Sending Taxi Booking Alert By SMS</a></li>
+							<li><a href="#">GPS Tracking System For Location Guessing</a></li>
+							<li><a href="#">Instant Printed Bills In Car On Departure</a></li>
+							<li><a href="#">Magazine And News Papers For Reading On Ride</a></li>
+							<li><a href="#">Credit And Debit Card Payment Available</a></li>
+						</ul>
+					</aside>
+				</div>			
+				<div class="col-md-4 col-sm-6">
+					<aside class="widget widget-about">
+						<h3 class="widget-title">about Us</h3>
+						<p>Hello we are Comre. We are here to provide you the best offers through our coupons. Hello we are We are here to provide you coupons.</p>
+						<ul>
+							<li><img src="./resources/assets/images/icon/ftr-location.png" alt="Address" />A12 - Design Street, <span>Omaha, United States</span></li>
+							<li><img src="./resources/assets/images/icon/ftr-customer.png" alt="Phone" /> Customer Support : <span>+ 124 45 76 678</span></li>
+							<li><img src="./resources/assets/images/icon/ftr-email.png" alt="Mail" /><span>Email :</span><a href="mailto:mail@NationalCab.com"> mail@NationalCab.com</a></li>
+						</ul>
+					</aside>
+				</div>
+			</div><!-- Container /- -->
+			<div class="bottom-footer container-fluid no-padding">
+				<div class="container">
+					<ul class="col-md-5 pull-left">
+						<li><a href="#">Faq</a></li>
+						<li><a href="#">News</a></li>
+						<li><a href="#">Client Support</a></li>
+					</ul>
+					<div class="col-md-7 pull-right">
+						<p class="copyright">copyrights &copy; 2017 Shavika Infotech (p). All rights reserved</p>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</footer>
+</section>
+
+<script type="text/javascript">
+
+    $('.form_datetime').datetimepicker({
+        //language:  'fr',
+        setDate: new Date(),
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		forceParse: 0,
+        showMeridian: 1
+    });
+</script>

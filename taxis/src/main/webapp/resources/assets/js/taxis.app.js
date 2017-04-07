@@ -1,23 +1,15 @@
-    $('.form_datetime').datetimepicker({
-        //language:  'fr',
-        setDate: new Date(),
-        weekStart: 1,
-        todayBtn:  1,
-		autoclose: 1,
-		todayHighlight: 1,
-		startView: 2,
-		forceParse: 0,
-        showMeridian: 1
-    });
-    
     var source, destination;
     var spnDuration = '', spnDistance = '';
     var directionsDisplay;
     
     google.maps.event.addDomListener(window, 'load', function () {
-        new google.maps.places.SearchBox(document.getElementById('source'));
-        new google.maps.places.SearchBox(document.getElementById('designation'));
-        directionsDisplay = new google.maps.DirectionsRenderer({ 'draggable': true });
+    	var options = { componentRestrictions: {country: 'uk'} };
+        //new google.maps.places.SearchBox(document.getElementById('source'));
+        //new google.maps.places.SearchBox(document.getElementById('designation'));
+    	new google.maps.places.Autocomplete(document.getElementById('source'), options);
+    	new google.maps.places.Autocomplete(document.getElementById('designation'), options);
+    	//new google.maps.places.Autocomplete(input, options);
+    	directionsDisplay = new google.maps.DirectionsRenderer({ 'draggable': true });
     });
      
     

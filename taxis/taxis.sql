@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `passanger`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `passanger` (
-  `ID` bigint(20) NOT NULL,
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
   `ADDRESS_ONE` varchar(100) NOT NULL,
   `ADDRESS_TWO` varchar(100) NOT NULL,
   `CITY` varchar(35) NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE `passanger` (
   `VEHICLE_ID` bigint(20) NOT NULL DEFAULT '0',
   `ZIP_CODE` int(8) NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -60,14 +60,14 @@ DROP TABLE IF EXISTS `properties`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `properties` (
-  `ID` bigint(20) NOT NULL,
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
   `CURRENCY` varchar(30) NOT NULL,
   `DATE_FORMAT` varchar(30) NOT NULL,
   `STD_CODE` varchar(30) NOT NULL,
   `TIME_FORMAT` varchar(30) NOT NULL,
   `TIME_ZONE` varchar(30) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -88,7 +88,7 @@ DROP TABLE IF EXISTS `travel_detail`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `travel_detail` (
-  `ID` bigint(20) NOT NULL,
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
   `CREATED_ON` bigint(20) NOT NULL DEFAULT '0',
   `DESIGNATION` varchar(500) NOT NULL,
   `IS_DELETED` int(11) NOT NULL DEFAULT '0',
@@ -104,7 +104,7 @@ CREATE TABLE `travel_detail` (
   `TRAVEL_FARE` double NOT NULL,
   `VEHICLE_ID` bigint(20) NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -124,7 +124,7 @@ DROP TABLE IF EXISTS `vehicle`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `vehicle` (
-  `ID` bigint(20) NOT NULL,
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
   `AVAILABILITY` varchar(30) NOT NULL,
   `CONTACT_NO` varchar(30) NOT NULL,
   `CREATED_ON` bigint(20) NOT NULL DEFAULT '0',
@@ -140,7 +140,7 @@ CREATE TABLE `vehicle` (
   `VEHICLE_NAME` varchar(50) NOT NULL,
   `IMG_NAME` varchar(50) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -162,4 +162,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-04-03 23:49:19
+-- Dump completed on 2017-04-07 16:46:05

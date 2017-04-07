@@ -39,11 +39,8 @@ public class UISyncController {
 		System.out.println("============= [menuservice]GET All...");
 		List<Vehicle> vehicleList = vehicleService.getAllVehicle();
 		System.out.println("============= GET SUV... size=" + vehicleList.size());
-		for(Vehicle vehicle : vehicleList)
-			System.out.println(vehicle);
 		if (null == vehicleList)
 			return new ResponseEntity<List<Vehicle>>(HttpStatus.NO_CONTENT);
-		System.out.println("============= GET All... vehicleSync=" + vehicleList.size());
 		return new ResponseEntity<List<Vehicle>>(vehicleList, HttpStatus.OK);
 	}
 
